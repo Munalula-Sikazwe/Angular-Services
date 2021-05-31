@@ -1,4 +1,7 @@
- export class AccountsService{
+import {LoggginService} from "./logggin.service";
+import {Injectable} from "@angular/core";
+@Injectable()
+export class AccountsService{
   accounts = [
     {
       name: 'Master Account',
@@ -13,6 +16,8 @@
       status: 'unknown'
     }
   ];
+  constructor(private loggingService:LoggginService) {
+  }
   addAccount(name:string,status:string){
     this.accounts.push({name: name, status: status})
   }
